@@ -1,0 +1,92 @@
+#
+# Story 1
+#
+def string_ini():
+    """ Initialiser une chaine
+    Returns :
+        chaine entrée par utilisateur
+    """
+    chaine = input("Veuillez entrer une chaine svp ==> ")
+    return chaine
+
+
+#
+# Story 5
+#
+def frame_ListStringBin_toEightChar(listString):
+    """ Cadrer les élémnts de la liste à droite sue huit caractères
+    Args:
+        liste de string sur 7 chars
+    Returns:
+        liste de string 8 chars
+    """
+    liste8 = []
+    i = 0;
+    while (i < len(listString)):
+        liste8.append("0" + listString[i])
+        i = i + 1
+    return liste8
+
+
+#
+# Story 9
+#
+def conv_list_StringBin_toListInt(listString):
+    """ Convertir en entier chaque éléments de la liste
+    Args:
+        liste de string sur 6 chars
+    Returns:
+        liste de int sur 6 chars
+    """
+    tab = [32, 16, 8, 4, 2, 1]
+    tab2 = []
+    compteur=0
+    i=0
+    while (i<len(listString)):
+        test=listString[i]
+        j=0
+        while (j<len(test)):
+            compteur = compteur +(int(test[j])*tab[j])
+            j=j+1
+
+        tab2.append(compteur)
+        compteur = 0
+        i=i+1
+    return tab2
+
+#
+# Story 10
+#
+def conv_listInt_toListString(listInt):
+    """ Convertir chaque éléments de la liste en base 64
+    Args:
+        liste de Int
+    Returns:
+        liste Base 64
+    """
+    base64t = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
+               "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
+               "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+",
+               "/"]
+    tab = []
+    i=0
+    while (i<len(listInt)):
+        tab.append(base64t[listInt[i]])
+        i=i+1
+    return tab
+
+
+def main():
+    """Main function
+        The main function is automatically called if the script is
+        directly given as first agument to Python interpreter
+    """
+    ma_liste = ["1000001", "1000010", "1000011", "1000100"]
+    print(frame_ListStringBin_toEightChar(ma_liste))
+    ma_liste6 = ["100001", "100010", "100011", "100100"]
+    print(conv_list_StringBin_toListInt(ma_liste6))
+    ma_liste11 = [33, 34, 35, 36]
+    print(conv_listInt_toListString(ma_liste11))
+
+if __name__ == "__main__":
+    main()
